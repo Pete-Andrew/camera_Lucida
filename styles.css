@@ -26,8 +26,7 @@ html, body {
     background-position-y: center;
     opacity: 0.5;
     
-
-    background-color: rgba(0, 255, 255, 0.5); /* Semi-transparent aqua */
+    /* background-color: rgba(0, 255, 255, 0.5); Semi-transparent aqua */
     
     display: flex; /* Flexbox to center the content */
     justify-content: center;
