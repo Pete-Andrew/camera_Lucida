@@ -20,7 +20,7 @@ html, body {
     width: 100%; /* Match the width of the parent container */
     height: 100%; /* Match the height of the parent container */
     
-    background-image: url(/img/Klaymen.png);
+    background-image: url(img/Klaymen.png);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: center;
