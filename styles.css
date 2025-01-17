@@ -1,0 +1,71 @@
+/* Ensure the entire page takes the full viewport height */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Container to center the video */
+#camera-container {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100%; /* Full width */
+    height: 100vh; /* Full height of the viewport */
+    background-color: #f1f1f1; /* Optional: background color for contrast */
+}
+
+#overlayImg {
+    position: absolute; /* Position it on top of the video */
+    
+    width: 100%; /* Match the width of the parent container */
+    height: 100%; /* Match the height of the parent container */
+    
+    background-image: url(/img/Klaymen.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    opacity: 0.5;
+    
+
+    background-color: rgba(0, 255, 255, 0.5); /* Semi-transparent aqua */
+    
+    display: flex; /* Flexbox to center the content */
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 2; /* Higher z-index to appear above the video */
+    pointer-events: none; /* Ensure clicks pass through the overlay */
+    color: #000; /* Text color */
+    font-size: 24px; /* Optional: font size */
+    font-weight: bold; /* Optional: font weight */
+}
+
+/* Style the video element */
+#camera-feed {
+    width: 100%; /* Adjust as needed */
+    height: auto;
+    max-width: 600px; /* Limit the max width for better visibility */
+    border: 5px solid #181818; /* 5px green border */
+    border-radius: 10px; /* Optional: rounded corners */
+}
+
+/* Style the buttons */
+button {
+    position: absolute;
+    top: 10px;
+    padding: 10px 20px;
+    background-color: #67f5ee;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#toggle-camera-button {
+    right: 150px; /* Position the button */
+}
+
+#pause-button {
+    right: 10px; /* Position the button */
+}
