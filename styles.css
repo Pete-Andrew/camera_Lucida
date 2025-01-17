@@ -52,9 +52,13 @@ button {
 }
 
 #toggle-camera-button {
-    right: 150px; /* Position the button */
+    right: 100px; /* Position the button */
 }
 
 #pause-button {
     right: 10px; /* Position the button */
+}
+
+#refresh {
+    right: 252px; 
 }
