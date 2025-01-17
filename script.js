@@ -1,4 +1,7 @@
 const pauseButton = document.getElementById('pause-button');
+const cameraFeed = document.getElementById('camera-feed');
+const overlayImage = document.getElementById('overlayImg');
+
 
 let currentFacingMode = 'user'; // Default to front camera
 let paused = false;
@@ -58,6 +61,27 @@ pauseButton.addEventListener('click', () => {
     }
 
 });
+
+//constrains the image to the size of the camera feed
+function resizeOverlay() {
+
+    // Get the size and position of the video element
+    const rect = cameraFeed.getBoundingClientRect();
+    // Apply the size and position to the overlay
+    overlayImage.style.width = `${rect.width}px`;
+    overlayImage.style.height = `${rect.height}px`;
+    overlayImage.style.top = `${rect.top}px`;
+    overlayImage.style.left = `${rect.left}px`;
+}
+
+// Adjust the overlay size whenever the window resizes
+window.addEventListener('resize', resizeOverlay);
+
+// Call the function initially to set the overlay size
+resizeOverlay();
+
+console.log("cameraFeed offsetHeight",cameraFeed.offsetHeight);
+console.log("cameraFeed offsetWidth", cameraFeed.offsetWidth);
 
 // Start with the default camera
 startCamera(currentFacingMode);
