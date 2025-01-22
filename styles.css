@@ -38,10 +38,8 @@ html, body {
     border-radius: 10px; /* Optional: rounded corners */
 }
 
-/* Style the buttons */
 button {
-    position: absolute;
-    top: 10px;
+    display: inline-block;
     padding: 10px 20px;
     background-color: #67f5ee;
     color: #000;
@@ -49,16 +47,34 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    margin: 10px;
 }
 
-#toggle-camera-button {
-    right: 100px; /* Position the button */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Add this line */
+    position: absolute; /* Add this line */
+    top: 10px; /* Add this line */
+    width: 100%; /* Add this line */
 }
 
-#pause-button {
-    right: 10px; /* Position the button */
+.slidecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /* Add this line */
+    top: 50px; /* Add this line */
+    width: 100%; /* Add this line */
 }
 
-#refresh {
-    right: 252px; 
-}
+/* reduces the size of the buttons */
+@media only screen and (max-width: 768px) {
+    button {
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+    #header {
+      justify-content: center;
+    }
+  }

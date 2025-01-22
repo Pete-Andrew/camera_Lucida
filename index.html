@@ -7,15 +7,27 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-   
+
     <div id="camera-container"> 
         <video id="camera-feed" autoplay playsinline></video>
         <div id="overlayImg"></div>
     </div>
     
-    <button id="toggle-camera-button">Switch Camera</button>
-    <button id="pause-button">Pause</button>
-    <button id="refresh">refresh</button>
+    <div id="header">
+        <button id="toggle-camera-button">Switch Camera</button>
+        <button id="pause-button">Pause</button>
+        <button id="refresh">refresh</button>
+        <button id="image">Image</button>
+       
+
+          
+    </div>
+   
+    <div class="slidecontainer">
+        <p>Opacity:</p>
+        <input type="range" min="1" max="100" value="50">
+    </div>
+
 
     <!-- <div class="slidecontainer">
         <input type="range" min="1" max="100" value="50" class="slider" id="myRange">

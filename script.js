@@ -74,6 +74,10 @@ function resizeOverlay() {
     console.log("resize overlay called");
 }
 
+//BUG: Add an opacity slider
+//Opacity slider
+//Add an image selection button
+
 // Adjust the overlay size whenever the window resizes
 window.addEventListener('resize', resizeOverlay);
 
@@ -85,5 +89,4 @@ console.log("cameraFeed offsetWidth", cameraFeed.offsetWidth);
 
 // Start with the default camera
 startCamera(currentFacingMode);
-
 refreshBtn.addEventListener('click', resizeOverlay);
