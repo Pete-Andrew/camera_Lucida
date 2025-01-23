@@ -2,6 +2,16 @@ const pauseButton = document.getElementById('pause-button');
 const cameraFeed = document.getElementById('camera-feed');
 const overlayImage = document.getElementById('overlayImg');
 const refreshBtn = document.getElementById('refresh');
+const slider = document.getElementById('slider');
+const image = document.getElementById('image');
+let opacity;
+
+//slider evert listener, lets you change the opacity of the overlay image. 
+slider.addEventListener("input", function (){
+    opacity = parseFloat(this.value)/100; //opacity range is 0-1, slider range is 0-100.
+    console.log(opacity);
+    overlayImage.style.opacity = opacity;
+})
 
 let currentFacingMode = 'user'; // Default to front camera
 let paused = false;
@@ -74,9 +84,9 @@ function resizeOverlay() {
     console.log("resize overlay called");
 }
 
-//BUG: Add an opacity slider
-//Opacity slider
+//BUG:
 //Add an image selection button
+//if image width > height set width etc. 
 
 // Adjust the overlay size whenever the window resizes
 window.addEventListener('resize', resizeOverlay);
