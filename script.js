@@ -3,7 +3,7 @@ const cameraFeed = document.getElementById('camera-feed');
 const overlayImage = document.getElementById('overlayImg');
 const refreshBtn = document.getElementById('refresh');
 const slider = document.getElementById('slider');
-const image = document.getElementById('image');
+const imageUploadBtn = document.getElementById('imageUploadBtn');
 let opacity;
 
 //slider evert listener, lets you change the opacity of the overlay image. 
@@ -12,6 +12,33 @@ slider.addEventListener("input", function (){
     console.log(opacity);
     overlayImage.style.opacity = opacity;
 })
+
+//image upload button
+imageUploadBtn.addEventListener('click', function() {
+    // Create a new file input element
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file'; // indicates that it is a file input element.
+    fileInput.accept = 'image/*'; //restrict the file input to only accept image files
+    console.log("input image button clicked")
+  
+    // Trigger the file input click event programmatically
+    fileInput.click(); //This opens the file selection dialog
+  
+    //An event listener is added to the file input element. This event listener is triggered when the user selects a file.
+    fileInput.addEventListener('change', function(event) {
+      const file = event.target.files[0]; //the selected file is accessed using this line
+      if (file) {
+        console.log("Uploaded Image:", file);
+        overlayImage.src = URL.createObjectURL(file); //This creates a temporary URL for the file. As the HTML element is a img you can set it's src file.
+      }
+    });
+  });
+
+//Bug: 
+// Get uploaded image dimensions
+// get camera feed dimensions
+// set up width/height rule so the uploaded image best fits the space. 
+// Prevent upload image stretching
 
 let currentFacingMode = 'user'; // Default to front camera
 let paused = false;
