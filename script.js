@@ -1,5 +1,6 @@
 const pauseButton = document.getElementById('pause-button');
 const cameraFeed = document.getElementById('camera-feed');
+const cameraFeedContainer = document.getElementById('camera-container');
 const overlayImage = document.getElementById('overlayImg');
 const refreshBtn = document.getElementById('refresh');
 const slider = document.getElementById('slider');
@@ -28,14 +29,43 @@ imageUploadBtn.addEventListener('click', function() {
     fileInput.addEventListener('change', function(event) {
       const file = event.target.files[0]; //the selected file is accessed using this line
       if (file) {
-        console.log("Uploaded Image:", file);
-        overlayImage.src = URL.createObjectURL(file); //This creates a temporary URL for the file. As the HTML element is a img you can set it's src file.
+        const img = new Image(); //creates a new Image using a constructor
+        img.src = URL.createObjectURL(file); //This creates a temporary URL for the file. As the HTML element is a img you can set its src file.
+
+        const videoFeedWidth = cameraFeedContainer.offsetWidth;
+        const videoFeedHeight = cameraFeedContainer.offsetHeight;
+        
+        widthVHeight(videoFeedHeight, videoFeedWidth);
+
+        img.onload = function () { //when the img is loaded, get it's width/height properties. 
+
+           
+            const uploadedImgWidth = img.naturalWidth;
+            const uploadedImgHeight = img.naturalHeight;
+            console.log(`Image dimensions: ${uploadedImgHeight} x ${uploadedImgWidth}`);
+            
+        if(uploadedImgWidth > uploadedImgHeight) {
+            console.log("img width > height")
+            //uploadedImgHeight = videoFeedHeight;
+            //need to scale the img here     
+        }
+        };
+
+
+        //replace the overlayImg
+        overlayImage.src = img.src; 
+        
       }
     });
   });
 
+  function widthVHeight (height, width) {
+    console.log(`Video feed width: ${width} px X height: ${height} px`)
+  }
+
+
+
 //Bug: 
-// Get uploaded image dimensions
 // get camera feed dimensions
 // set up width/height rule so the uploaded image best fits the space. 
 // Prevent upload image stretching
