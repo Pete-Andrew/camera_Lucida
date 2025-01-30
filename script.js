@@ -63,12 +63,11 @@ imageUploadBtn.addEventListener('click', function() {
     console.log(`Video feed width: ${width} px X height: ${height} px`)
   }
 
-
-
 //Bug: 
 // get camera feed dimensions
 // set up width/height rule so the uploaded image best fits the space. 
 // Prevent upload image stretching
+// be able to distort image?
 
 let currentFacingMode = 'user'; // Default to front camera
 let paused = false;
@@ -106,11 +105,12 @@ async function startCamera(facingMode) {
     }
 }
 
-document.getElementById('toggle-camera-button').addEventListener('click', () => {
-    // Toggle the facing mode
-    currentFacingMode = currentFacingMode === 'user' ? 'environment' : 'user';
-    startCamera(currentFacingMode);
-});
+//Commented out as there is no need to switch camera view on the phone
+// document.getElementById('toggle-camera-button').addEventListener('click', () => {
+//     // Toggle the facing mode
+//     currentFacingMode = currentFacingMode === 'user' ? 'environment' : 'user';
+//     startCamera(currentFacingMode);
+// });
 
 pauseButton.addEventListener('click', () => {
     
