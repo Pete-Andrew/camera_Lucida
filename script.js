@@ -106,11 +106,11 @@ async function startCamera(facingMode) {
 }
 
 //Commented out as there is no need to switch camera view on the phone
-// document.getElementById('toggle-camera-button').addEventListener('click', () => {
-//     // Toggle the facing mode
-//     currentFacingMode = currentFacingMode === 'user' ? 'environment' : 'user';
-//     startCamera(currentFacingMode);
-// });
+document.getElementById('toggle-camera-button').addEventListener('click', () => {
+    // Toggle the facing mode
+    currentFacingMode = currentFacingMode === 'user' ? 'environment' : 'user';
+    startCamera(currentFacingMode);
+});
 
 pauseButton.addEventListener('click', () => {
     
