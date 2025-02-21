@@ -69,7 +69,7 @@ imageUploadBtn.addEventListener('click', function() {
 // Prevent upload image stretching
 // be able to distort image?
 
-let currentFacingMode = 'user'; // Default to front camera
+let currentFacingMode = 'environment'; // 'user' defaults to facing user camera
 let paused = false;
 
 async function startCamera(facingMode) {
