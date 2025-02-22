@@ -16,6 +16,9 @@ slider.addEventListener("input", function (){
 
 //image upload button
 imageUploadBtn.addEventListener('click', function() {
+
+    // Bug still has the starter Klaymen image when other image is uploaded
+
     // Create a new file input element
     const fileInput = document.createElement('input');
     fileInput.type = 'file'; // indicates that it is a file input element.
@@ -38,22 +41,58 @@ imageUploadBtn.addEventListener('click', function() {
         widthVHeight(videoFeedHeight, videoFeedWidth);
 
         img.onload = function () { //when the img is loaded, get it's width/height properties. 
-
            
             const uploadedImgWidth = img.naturalWidth;
             const uploadedImgHeight = img.naturalHeight;
-            console.log(`Image dimensions: ${uploadedImgHeight} x ${uploadedImgWidth}`);
-            
+            console.log(`Image dimensions: Height: ${uploadedImgHeight}, Width: ${uploadedImgWidth}`);
+
+            // Get aspect ratios
+            const imgAspectRatio = uploadedImgWidth / uploadedImgHeight;
+            const videoAspectRatio = videoFeedWidth / videoFeedHeight;
+
+            let newWidth, newHeight;
+
+            if (imgAspectRatio > videoAspectRatio) {
+              // Image is wider, scale based on width
+              newWidth = videoFeedWidth;
+              newHeight = videoFeedWidth / imgAspectRatio;
+            } else {
+              // Image is taller or square, scale based on height
+              newHeight = videoFeedHeight;
+              newWidth = videoFeedHeight * imgAspectRatio;
+            }
+      
+            // Apply styles to maintain aspect ratio and fit within the video feed
+            overlayImage.style.width = `${newWidth}px`;
+            overlayImage.style.height = `${newHeight}px`;
+            overlayImage.style.objectFit = "contain"; // Ensures it fits within the box
+            overlayImage.style.position = "absolute"; 
+            overlayImage.style.left = `${(videoFeedWidth - newWidth) / 2}px`; // Center horizontally
+            overlayImage.style.top = `${(videoFeedHeight - newHeight) / 2}px`; // Center vertically
+      
+            // Replace the overlayImg
+            overlayImage.src = img.src;
+            //call the resize or the image retains original dimensions. 
+            resizeOverlay()
+        
+        //image is wider
         if(uploadedImgWidth > uploadedImgHeight) {
             console.log("img width > height")
             //uploadedImgHeight = videoFeedHeight;
             //need to scale the img here     
         }
-        };
+        //image is taller
+        else if (uploadedImgWidth < uploadedImgHeight) {
+            console.log("img width < height")
+           
 
-        //replace the overlayImg
-        overlayImage.src = img.src; 
-        
+        }
+        //image is square
+        else if (uploadedImgWidth == uploadedImgHeight) {
+            console.log("Square image yo")
+        }
+
+        };      
       }
     });
   });
