@@ -17,7 +17,7 @@ slider.addEventListener("input", function (){
 //image upload button
 imageUploadBtn.addEventListener('click', function() {
 
-    // Bug still has the starter Klaymen image when other image is uploaded
+    // Background Klaymen image is set in CSS file. 
 
     // Create a new file input element
     const fileInput = document.createElement('input');
@@ -83,9 +83,7 @@ imageUploadBtn.addEventListener('click', function() {
         }
         //image is taller
         else if (uploadedImgWidth < uploadedImgHeight) {
-            console.log("img width < height")
-           
-
+            console.log("img width < height")          
         }
         //image is square
         else if (uploadedImgWidth == uploadedImgHeight) {

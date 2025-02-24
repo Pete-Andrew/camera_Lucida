@@ -19,7 +19,7 @@ html, body {
     position: absolute; /* Position relative to #camera-container */
     top: 0;
     left: 0;
-    background-image: url(img/Klaymen.png);
+    /* background-image: url(img/Klaymen.png); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain; /* Ensure the image scales properly */
