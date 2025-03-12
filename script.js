@@ -9,11 +9,11 @@ const gridLines = document.getElementById('gridlines')
 
 let opacity;
 
-gridLines.addEventListener('click', () => {
-    console.log("Gridlines on/off");
-    //find the center of the video
-    //create a vert line
-})
+   //find the center of the video
+   //create a vert line
+// gridLines.addEventListener('click', () => {
+//     console.log("Gridlines on/off"); 
+// })
 
 //slider evert listener, lets you change the opacity of the overlay image. 
 slider.addEventListener("input", function () {
